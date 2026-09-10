@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal website of Phani Dileep — software engineer, builder, and technologist." />
+  <title>Phani Dileep | Software Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home">PD<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">HELLO, I'M</p>
+      <h1>Phani <span>Dileep</span></h1>
+      <h2>Senior Full Stack Engineer</h2>
+      <p class="intro">I build scalable platforms, distributed systems, and thoughtful products — from enterprise personalization to ideas that solve everyday problems.</p>
+      <div class="actions">
+        <a class="button primary" href="#projects">See my work</a>
+        <a class="button" href="https://github.com/phanidileep4">GitHub</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="eyebrow">ABOUT</p>
+      <h2>Engineer. Builder. Always learning.</h2>
+      <p>Software engineer with extensive experience building Java and Spring-based distributed systems, event-driven applications, cloud services, and modern web experiences. I enjoy turning complex engineering problems into reliable, useful products.</p>
+    </section>
+
+    <section id="experience">
+      <p class="eyebrow">EXPERIENCE</p>
+      <h2>What I work on</h2>
+      <div class="card">
+        <h3>Senior Full Stack Engineer</h3>
+        <p class="muted">Enterprise personalization & platform engineering</p>
+        <p>Building scalable services and data-driven experiences using Java, Spring Boot, event streaming, cloud infrastructure, distributed databases, and modern delivery platforms.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="eyebrow">TOOLKIT</p>
+      <h2>Technologies I enjoy working with</h2>
+      <div class="chips">
+        <span>Java</span><span>Spring Boot</span><span>Kafka</span><span>AWS</span><span>Kubernetes</span><span>Docker</span><span>Aerospike</span><span>MongoDB</span><span>Snowflake</span><span>React</span><span>REST APIs</span><span>Microservices</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="eyebrow">PROJECTS</p>
+      <h2>Things I'm building</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>BenefitMyTrip</h3>
+          <p>A traveler-friendly way to understand and make better use of travel protections and benefits when trips don't go as planned.</p>
+          <a href="https://benefitmytrip.com">Visit project →</a>
+        </article>
+        <article class="card">
+          <h3>Commutemate</h3>
+          <p>A multi-tenant smart carpool and compatibility-matching platform designed for organizations and broader communities.</p>
+          <a href="https://github.com/phanidileep4/commutemate-platform">View on GitHub →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">CONTACT</p>
+      <h2>Let's connect.</h2>
+      <p>Interested in engineering, products, distributed systems, or building something useful? Find me on GitHub.</p>
+      <a class="button primary" href="https://github.com/phanidileep4">GitHub profile</a>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Phani Dileep · Built with curiosity.</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
