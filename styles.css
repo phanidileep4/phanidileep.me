@@ -85,21 +85,17 @@ main { max-width: var(--max); margin: auto; padding: 0 28px; }
 .button:hover { transform: translateY(-2px); border-color: var(--ink); }
 .button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 
-.portrait-wrap { min-height: 540px; display: flex; align-items: center; justify-content: center; }
+.portrait-wrap { min-height: 540px; display: flex; align-items: center; justify-content: center; position: relative; }
 .portrait-sketch {
   position: relative;
-  width: min(100%, 460px);
+  width: min(100%, 500px);
   height: 560px;
-  overflow: hidden;
-  border-radius: 240px 240px 22px 22px;
-  border: 1px solid var(--line);
-  background: linear-gradient(155deg, #232727, #0e1010 68%);
   isolation: isolate;
 }
-.portrait-sketch::before { content: '14+ YEARS / BUILDING SYSTEMS'; position: absolute; z-index: 2; top: 30px; left: 30px; right: 30px; color: rgba(245, 243, 236, .62); font-size: .75rem; letter-spacing: .16em; text-align: center; }
-.portrait-sketch::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(to top, rgba(9, 11, 11, .95), transparent 42%), repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,.018) 49px); pointer-events: none; }
-.portrait-sketch img { position: absolute; inset: 70px 0 0; width: 100%; height: calc(100% - 70px); object-fit: cover; object-position: center top; filter: grayscale(1) contrast(1.08); opacity: .9; }
-.scribble { position: absolute; z-index: 3; left: 28px; right: 28px; bottom: 25px; font-size: .75rem; line-height: 1.5; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.portrait-sketch::before { content: 'SYSTEMS'; position: absolute; z-index: 0; top: 17%; left: 50%; transform: translateX(-50%) rotate(-90deg); color: transparent; -webkit-text-stroke: 1px rgba(199, 255, 90, .34); font-size: clamp(4.6rem, 8vw, 7.4rem); font-weight: 700; letter-spacing: -.07em; line-height: 1; white-space: nowrap; }
+.portrait-sketch::after { content: '14+ YEARS / BUILDING FOR THE REAL WORLD'; position: absolute; z-index: 2; top: 34px; right: -26px; color: var(--muted); font-size: .75rem; letter-spacing: .15em; writing-mode: vertical-rl; text-transform: uppercase; }
+.portrait-sketch img { position: absolute; z-index: 1; left: 50%; bottom: 0; width: 112%; height: auto; max-height: 540px; object-fit: contain; transform: translateX(-50%); filter: grayscale(1) contrast(1.08); }
+.scribble { position: absolute; z-index: 3; left: 5px; right: 5px; bottom: 5px; padding: 18px 20px; border-top: 1px solid var(--line); background: linear-gradient(to top, rgba(9, 11, 11, .88), rgba(9, 11, 11, .45)); font-size: .75rem; line-height: 1.5; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
 
 .signal-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 100px; }
 .signal-strip span { padding: 20px; color: var(--muted); font-size: .75rem; letter-spacing: .11em; text-align: center; text-transform: uppercase; border-right: 1px solid var(--line); }
@@ -199,7 +195,7 @@ a.project:hover, a.note:hover { background: var(--surface); padding-left: 30px; 
   .hero-split { grid-template-columns: 1fr; }
   .hero h1, .page-head h1 { font-size: clamp(3.8rem, 18vw, 6rem); }
   .portrait-wrap { min-height: 470px; margin-top: 20px; }
-  .portrait-sketch { width: min(100%, 390px); height: 470px; min-height: 470px; }
+  .portrait-sketch { width: min(92%, 410px); height: 470px; min-height: 470px; }
   .section-intro { grid-template-columns: 1fr; gap: 22px; padding: 60px 0; }
   .section-title { align-items: flex-start; flex-direction: column; }
   .feature-note { grid-template-columns: 1fr; gap: 20px; }
@@ -215,7 +211,7 @@ a.project:hover, a.note:hover { background: var(--surface); padding-left: 30px; 
   .signal-strip { grid-template-columns: 1fr; }
   .signal-strip span { border-right: 0; border-bottom: 1px solid var(--line); }
   .signal-strip span:last-child { border-bottom: 0; }
-  .portrait-sketch { border-radius: 190px 190px 20px 20px; }
+  .portrait-sketch::after { right: -14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
