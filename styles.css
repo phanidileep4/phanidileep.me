@@ -129,6 +129,9 @@ main { max-width: var(--max); margin: auto; padding: 0 28px; }
 footer { max-width: var(--max); margin: auto; padding: 70px 28px 42px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; color: var(--muted); font-size: .78rem; }
 footer strong { display: block; font-family: 'Newsreader', Georgia, serif; font-size: clamp(3.2rem, 8.2vw, 8rem); font-weight: 500; line-height: .75; letter-spacing: -.065em; color: var(--ink); }
 footer p { margin: 20px 0 0; }
+.social-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; }
+.social-links a { color: var(--ink); font-size: .75rem; font-weight: 600; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
+.social-links a:hover { color: var(--accent); }
 
 .page-head { padding: clamp(75px, 12vw, 150px) 0 70px; border-bottom: 1px solid var(--line); }
 .page-head h1 { max-width: 1100px; font-size: clamp(3.9rem, 8vw, 8rem); }
