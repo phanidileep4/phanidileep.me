@@ -121,6 +121,7 @@ main { max-width: var(--max); margin: auto; padding: 0 28px; }
 .section-title p:not(.kicker) { margin: 8px 0 0; color: var(--muted); }
 .section-title > a { color: var(--accent); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
 .feature-note { display: grid; grid-template-columns: 170px 1fr auto; gap: 35px; align-items: center; padding: clamp(28px, 5vw, 58px); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(135deg, var(--surface-2), var(--surface)); text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.feature-note + .feature-note { margin-top: 14px; }
 .feature-note:hover { border-color: var(--accent); transform: translateY(-3px); }
 .feature-note h3 { font-family: 'Newsreader', Georgia, serif; font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; line-height: 1; letter-spacing: -.045em; margin: 0 0 14px; }
 .feature-note p { color: var(--muted); margin: 0; max-width: 670px; }
