@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://phanidileep.me/</loc><lastmod>2026-09-20</lastmod><priority>1.0</priority></url>
+  <url><loc>https://phanidileep.me/</loc><lastmod>2026-09-26</lastmod><priority>1.0</priority></url>
   <url><loc>https://phanidileep.me/about.html</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
   <url><loc>https://phanidileep.me/work.html</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
   <url><loc>https://phanidileep.me/projects.html</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
-  <url><loc>https://phanidileep.me/notes.html</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://phanidileep.me/notes.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://phanidileep.me/ai-doesnt-always-need-to-talk.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://phanidileep.me/what-if-ai-makes-barter-practical-again.html</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority></url>
   <url><loc>https://phanidileep.me/localhost-is-no-longer-local.html</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority></url>
   <url><loc>https://phanidileep.me/next-app-store-might-not-have-apps.html</loc><lastmod>2026-09-19</lastmod><priority>0.8</priority></url>
