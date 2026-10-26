@@ -14,6 +14,7 @@
   <meta property="og:description" content="A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.">
   <meta property="og:url" content="https://phanidileep.me/what-if-ai-makes-barter-practical-again.html">
   <meta property="article:published_time" content="2026-09-20">
+  <meta property="article:modified_time" content="2026-10-25">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="What If AI Makes Barter Practical Again?">
   <meta name="twitter:description" content="Can AI solve enough of barter's coordination problem to make an old idea useful again?">
@@ -25,7 +26,7 @@
     "headline": "What If AI Makes Barter Practical Again?",
     "description": "A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.",
     "datePublished": "2026-09-20",
-    "dateModified": "2026-09-20",
+    "dateModified": "2026-10-25",
     "author": {
       "@type": "Person",
       "name": "Phani Dileep",
@@ -34,6 +35,18 @@
     "mainEntityOfPage": "https://phanidileep.me/what-if-ai-makes-barter-practical-again.html"
   }
   </script>
+  <style>
+.article-body pre{overflow-x:auto}
+.article-body .update-date{color:var(--muted);font-size:.9rem}
+.article-body #barter-poc-update{scroll-margin-top:110px}
+.article-body .barter-circle{margin:2em 0;padding:24px;border:1px solid var(--line-strong);border-radius:16px;background:var(--surface)}
+.barter-circle-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.barter-circle-flow>div{padding:16px;border:1px solid var(--line);border-radius:12px;min-width:0}
+.article-body .barter-circle-flow strong{display:block;color:var(--accent)}
+.barter-circle-flow span{display:block;font-size:.9rem;line-height:1.6;margin-top:8px}
+.barter-circle figcaption{font-size:.85rem;line-height:1.6;margin-top:18px}
+@media(max-width:600px){.barter-circle-flow{grid-template-columns:1fr}.article-body .barter-circle{padding:18px}}
+</style>
 </head>
 <body>
   <header class="nav">
@@ -44,7 +57,7 @@
     <p class="eyebrow">AI &amp; SOCIETY · SEPTEMBER 2026</p>
     <h1>What If AI Makes Barter Practical Again?</h1>
     <p class="dek">A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.</p>
-    <p class="meta">By Phani Dileep · September 20, 2026</p>
+    <p class="meta">By Phani Dileep · September 20, 2026 · Updated October 25, 2026</p>
     <div class="article-body">
       <p>In September 2019, I created a GitHub repository called <a href="https://github.com/phanidileep4/barterSystem" target="_blank" rel="noopener">BarterSystem</a>.</p>
 
@@ -167,6 +180,33 @@ A mechanic needs a simple website.</pre>
 
       <p><strong>Maybe the future of exchange is not money or barter. Maybe it is a richer system in which people have more than one way to make their value visible.</strong></p>
 
+<section id="barter-poc-update" aria-labelledby="barter-update-title">
+<h2 id="barter-update-title">Update: I decided to test the idea</h2>
+<p class="update-date"><time datetime="2026-10-25">October 25, 2026</time></p>
+<p>After writing this, I realized I did not want to leave the idea as a prediction. So I built a small proof of concept called BarterSystem to test it: what if the useful capability was finding an exchange that people would struggle to discover themselves?</p>
+<p>Traditional barter has a coincidence-of-wants problem. If I offer tutoring and need plumbing, I have to find a plumber who also happens to need tutoring. Finding someone who can help me is only half the problem. They have to want what I can offer, too.</p>
+<p>But a matching engine does not have to stop at two people.</p>
+<p>The POC uses a fictional community called Maple Commons. Asha offers high-school math/physics tutoring and needs a leaking faucet fixed. Ben offers basic plumbing and needs a LinkedIn headshot. Chen offers portrait/headshot photography and needs math tutoring for his teenage son.</p>
+<figure class="barter-circle">
+<div class="barter-circle-flow" aria-label="Exchange circle: Asha gives tutoring to Chen, Chen gives photography to Ben, and Ben gives plumbing to Asha.">
+<div><strong>Asha → Chen</strong><span>Math/physics tutoring</span></div>
+<div><strong>Chen → Ben</strong><span>Portrait/headshot photography</span></div>
+<div><strong>Ben → Asha</strong><span>Fix the leaking faucet</span></div>
+</div>
+<figcaption>Asha → Chen → Ben → Asha. Arrows show who provides a service to whom; the last exchange closes the circle.</figcaption>
+</figure>
+<p>Asha tutors Chen’s son. Chen takes Ben’s headshot. Ben fixes Asha’s faucet. Each person gives something they can offer and receives something they need, without money changing hands or any pair needing a direct two-way barter.</p>
+<p>That is the experiment: people describe their offers and needs, and the system searches the network for viable exchange circles. The POC already represents constraints such as region, remote versus in-person participation, and the ability to say “Don’t match me.” A circle has to fit people’s constraints as well as their needs.</p>
+<h3>What if Barter becomes a capability an agent can call?</h3>
+<p>Building this also connected with an idea I explored in <a href="next-app-store-might-not-have-apps.html">The Next App Store Might Not Have Apps</a>: a useful service could become a capability an agent calls. Someone might tell their AI agent:</p>
+<blockquote>“I need someone to fix my faucet, but I'd rather trade something than pay cash.”</blockquote>
+<p>With permission, the agent could help that person formulate what they are willing to offer. Maybe it is software help, tutoring or something else they had not thought to list. It could submit their needs, capabilities and constraints to Barter, retrieve viable circles, explain the proposed exchange, and ask the humans involved to approve before anyone commits.</p>
+<p>The agent would help express intent and carry context. Barter would do the specialized work of finding a match across the network. Human agreement would still be essential.</p>
+<div class="callout"><strong>The website is one interface. The matching network is the product.</strong></div>
+<p>That is the direction I want to explore: Barter as an agent-callable clearing and matching capability. A website can make offers and circles visible, while an API could let different agents bring people’s needs into the same network. The value would come from discovering a workable exchange across participants, rather than requiring everyone to browse another marketplace UI.</p>
+<p>This is still an early proof of concept with a fictional community, not a production service. The agent/API flow above is a possibility I want to test, not a claim that those integrations exist today. Real exchanges would raise further questions about trust, fairness, scheduling and what happens when someone cannot follow through.</p>
+<p>For now, I have something concrete to learn from. Seven years after that two-line note, I have a small matching network to experiment with—and a new question about which parts of it need to be a website at all.</p>
+</section>
       <hr>
       <p><small><strong>Explore or contribute:</strong> <a href="https://github.com/phanidileep4/barterSystem" target="_blank" rel="noopener">BarterSystem on GitHub</a> · <a href="https://github.com/phanidileep4/barterSystem/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contribution guide</a> · <a href="https://github.com/phanidileep4/barterSystem/issues" target="_blank" rel="noopener">Open starter issues</a></small></p>
       <p><small><strong>Sources &amp; further reading:</strong> <a href="https://www.imf.org/en/publications/staff-discussion-notes/issues/2024/01/14/gen-ai-artificial-intelligence-and-the-future-of-work-542379" target="_blank" rel="noopener">IMF: Generative AI and the Future of Work</a> · <a href="https://www.stlouisfed.org/publications/page-one-economics/2013/03/01/money-and-inflation-a-functional-relationship" target="_blank" rel="noopener">Federal Reserve Bank of St. Louis: Money versus barter</a> · <a href="https://www.irs.gov/taxtopics/tc420" target="_blank" rel="noopener">IRS: Bartering income</a></small></p>
