@@ -14,7 +14,7 @@
   <meta property="og:description" content="A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.">
   <meta property="og:url" content="https://phanidileep.me/what-if-ai-makes-barter-practical-again.html">
   <meta property="article:published_time" content="2026-09-20">
-  <meta property="article:modified_time" content="2026-10-25">
+  <meta property="article:modified_time" content="2026-10-26">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="What If AI Makes Barter Practical Again?">
   <meta name="twitter:description" content="Can AI solve enough of barter's coordination problem to make an old idea useful again?">
@@ -26,7 +26,7 @@
     "headline": "What If AI Makes Barter Practical Again?",
     "description": "A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.",
     "datePublished": "2026-09-20",
-    "dateModified": "2026-10-25",
+    "dateModified": "2026-10-26",
     "author": {
       "@type": "Person",
       "name": "Phani Dileep",
@@ -46,6 +46,10 @@
 .barter-circle-flow span{display:block;font-size:.9rem;line-height:1.6;margin-top:8px}
 .barter-circle figcaption{font-size:.85rem;line-height:1.6;margin-top:18px}
 @media(max-width:600px){.barter-circle-flow{grid-template-columns:1fr}.article-body .barter-circle{padding:18px}}
+.article-body .barter-screenshot{margin:2em 0}
+.barter-screenshot img{display:block;width:100%;height:auto;border:1px solid var(--line-strong);border-radius:12px}
+.barter-screenshot figcaption{margin-top:12px;font-size:.88rem;line-height:1.65}
+.barter-screenshot a:focus-visible{outline:2px solid var(--accent);outline-offset:5px;display:block;border-radius:12px}
 </style>
 </head>
 <body>
@@ -57,7 +61,7 @@
     <p class="eyebrow">AI &amp; SOCIETY · SEPTEMBER 2026</p>
     <h1>What If AI Makes Barter Practical Again?</h1>
     <p class="dek">A seven-year-old idea about exchange without immediate money feels newly relevant in the age of AI—but also more complicated.</p>
-    <p class="meta">By Phani Dileep · September 20, 2026 · Updated October 25, 2026</p>
+    <p class="meta">By Phani Dileep · September 20, 2026 · Updated October 26, 2026</p>
     <div class="article-body">
       <p>In September 2019, I created a GitHub repository called <a href="https://github.com/phanidileep4/barterSystem" target="_blank" rel="noopener">BarterSystem</a>.</p>
 
@@ -197,6 +201,11 @@ A mechanic needs a simple website.</pre>
 </figure>
 <p>Asha tutors Chen’s son. Chen takes Ben’s headshot. Ben fixes Asha’s faucet. Each person gives something they can offer and receives something they need, without money changing hands or any pair needing a direct two-way barter.</p>
 <p>That is the experiment: people describe their offers and needs, and the system searches the network for viable exchange circles. The POC already represents constraints such as region, remote versus in-person participation, and the ability to say “Don’t match me.” A circle has to fit people’s constraints as well as their needs.</p>
+<h3>A look inside the proof of concept</h3>
+<p>These screenshots show the fictional Maple Commons community in the current POC. Select an image to view it at a larger size.</p>
+<figure class="barter-screenshot"><a href="assets/barter-my-listings.jpg"><img src="assets/barter-my-listings.jpg" width="1800" height="1262" loading="lazy" decoding="async" alt="Asha’s offers and needs in the BarterSystem POC: high-school math and physics tutoring, and a leaking kitchen faucet needing repair."></a><figcaption>Start with what you can offer and what you need. Asha’s listings include participation mode and estimated effort.</figcaption></figure>
+<figure class="barter-screenshot"><a href="assets/barter-community.jpg"><img src="assets/barter-community.jpg" width="1800" height="1341" loading="lazy" decoding="async" alt="Maple Commons community offers and needs, including Ben’s plumbing, Chen’s photography and tutoring need, regions, participation modes, and matching opt-out controls."></a><figcaption>Maple Commons is a fictional community. The community view makes offers, needs and constraints visible across participants.</figcaption></figure>
+<figure class="barter-screenshot"><a href="assets/barter-circle-result.jpg"><img src="assets/barter-circle-result.jpg" width="1800" height="1328" loading="lazy" decoding="async" alt="Suggested three-person exchange circle: Asha tutors Chen’s son, Chen photographs Ben, and Ben fixes Asha’s faucet, with effort comparisons and approval controls."></a><figcaption>The suggested circle closes the loop. The POC explains each match, highlights uneven effort, and asks everyone to agree before anything starts.</figcaption></figure>
 <h3>What if Barter becomes a capability an agent can call?</h3>
 <p>Building this also connected with an idea I explored in <a href="next-app-store-might-not-have-apps.html">The Next App Store Might Not Have Apps</a>: a useful service could become a capability an agent calls. Someone might tell their AI agent:</p>
 <blockquote>“I need someone to fix my faucet, but I'd rather trade something than pay cash.”</blockquote>
