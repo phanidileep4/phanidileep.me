@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>I Couldn't Wait for Muse Charm, So I Built Arc | Phani Dileep</title>
+  <meta name="description" content="How I turned a Waveshare ESP32-S3 Touch AMOLED 1.75C into Arc, a Muse-powered voice companion, while preserving recovery, credentials and the lessons from real troubleshooting.">
+  <meta name="author" content="Phani Dileep">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://phanidileep.me/i-couldnt-wait-for-muse-charm.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Phani Dileep">
+  <meta property="og:title" content="I Couldn't Wait for Muse Charm, So I Built My Own Muse-Powered Arc">
+  <meta property="og:description" content="The excitement, safeguards and real troubleshooting behind turning a tiny Waveshare board into a spoken Muse companion.">
+  <meta property="og:url" content="https://phanidileep.me/i-couldnt-wait-for-muse-charm.html">
+  <meta property="og:image" content="https://phanidileep.me/assets/muse-arc-live-voice.jpg">
+  <meta property="article:published_time" content="2026-11-06">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="I Couldn't Wait for Muse Charm, So I Built My Own Muse-Powered Arc">
+  <meta name="twitter:description" content="A practical, safety-first guide to building a Muse voice companion on the Waveshare 1.75C.">
+  <meta name="twitter:image" content="https://phanidileep.me/assets/muse-arc-live-voice.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article-media{margin:2.5em auto;max-width:680px}.article-media img{display:block;width:100%;height:auto;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#0b0b0b}.article-media figcaption{margin-top:10px;color:var(--dim);font-size:.78rem;line-height:1.5}.video-media{max-width:920px}.video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#0b0b0b}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.step{margin:2.5em 0;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:14px}.step h2{margin-top:0}.warning{margin:2em 0;padding:20px;border-left:3px solid #f5b942;background:rgba(245,185,66,.08)}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "I Couldn't Wait for Muse Charm, So I Built My Own Muse-Powered Arc",
+    "description": "How I turned a Waveshare ESP32-S3 Touch AMOLED 1.75C into Arc, a Muse-powered voice companion, while preserving recovery, credentials and the lessons from real troubleshooting.",
+    "datePublished": "2026-11-06",
+    "dateModified": "2026-11-06",
+    "author": {"@type": "Person", "name": "Phani Dileep", "url": "https://phanidileep.me/"},
+    "mainEntityOfPage": "https://phanidileep.me/i-couldnt-wait-for-muse-charm.html",
+    "image": "https://phanidileep.me/assets/muse-arc-live-voice.jpg"
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><strong>Phani Dileep</strong><small>Build · Learn · Explore · Share</small></a>
+    <nav aria-label="Primary navigation"><a href="/">Home</a><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a class="active" href="notes.html">Notes</a><a href="photos.html">Photos</a><a href="life.html">Life</a></nav>
+  </header>
+  <main class="article">
+    <p class="eyebrow">AI HARDWARE · NOVEMBER 2026</p>
+    <h1>I Couldn't Wait for Muse Charm, So I Built My Own Muse-Powered Arc</h1>
+    <p class="dek">How a tiny Waveshare board became a working voice companion—and why the backups, failed connections and silent replies were as valuable as the final result.</p>
+    <p class="meta">By Phani Dileep · November 6, 2026</p>
+    <div class="article-body">
+      <p>When Meta introduced <a href="https://www.meta.com/muse-charm/" target="_blank" rel="noopener">Muse Charm</a>, I was immediately excited by the idea: a small, expressive device that makes a personal AI feel present without requiring me to keep opening a phone or laptop.</p>
+
+      <p>But waiting for finished hardware is difficult when an idea already feels buildable.</p>
+
+      <p>I had a <a href="https://docs.waveshare.com/ESP32-S3-Touch-AMOLED-1.75C" target="_blank" rel="noopener">Waveshare ESP32-S3-Touch-AMOLED-1.75C</a> with a round screen, microphone, speaker, touch interface, Wi-Fi and room for a small battery. With the official <a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank" rel="noopener">Muse Gadget SDK</a>, it looked like the perfect platform for learning what a dedicated Muse device could feel like before Charm reaches my hands.</p>
+
+      <p>I named it <strong>Arc</strong>.</p>
+
+      <figure class="article-media"><img src="assets/muse-arc-live-voice.jpg" width="950" height="1400" alt="Arc showing Muse's animated avatar and speaking status during a live voice response" fetchpriority="high"><figcaption>Arc speaking through Muse—the moment the build became a real voice companion rather than only a successful firmware image.</figcaption></figure>
+
+      <p>Arc is not a homemade Muse Charm and I do not want to present it as one. It has different hardware and does not reproduce every announced Charm feature. What it gives me is the part I most wanted to experience: a compact Muse-powered companion with an animated display, live spoken conversation and enough openness to keep experimenting.</p>
+
+      <blockquote>The exciting part was not that I could avoid waiting. It was that waiting became an opportunity to understand the system by building one.</blockquote>
+
+      <h2>What works now</h2>
+
+      <p>The finished setup connects to Wi-Fi, pairs with my Muse account and supports two different conversation modes:</p>
+
+      <ul>
+        <li><strong>Quick click:</strong> start a live, hands-free conversation and hear Muse's spoken reply.</li>
+        <li><strong>Click again:</strong> end the live call.</li>
+        <li><strong>Press and hold:</strong> send a voice note and read the text reply on the display.</li>
+      </ul>
+
+      <p>The device shows Muse's animated avatar, captions and connection state on its 466 × 466 AMOLED display. Brightness, screen sleep, microphone gain and speaker volume are adjustable. Once configured, the Muse build works over Wi-Fi without using my MacBook as an AI bridge.</p>
+
+      <figure class="article-media video-media"><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ctFPdUCVAUU" title="Arc Muse live voice demonstration" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption>A short demonstration of Arc running Muse. The video is hosted as an unlisted YouTube video so the website and Git repository remain lightweight.</figcaption></figure>
+
+      <p>That final interaction looks simple. Getting there required much more than copying firmware onto a board.</p>
+
+      <h2>The principle that guided the build: preserve a way back</h2>
+
+      <p>Arc already had working Xiaozhi firmware. Replacing it meant changing something valuable, not preparing an empty development board. Before writing anything, I wanted three recovery layers:</p>
+
+      <ol>
+        <li>A complete backup of the existing 32 MB flash.</li>
+        <li>A separately verified official Waveshare factory image.</li>
+        <li>A reproducible Muse build with pinned source and toolchain versions.</li>
+      </ol>
+
+      <div class="warning"><strong>This guide is specific to the Waveshare ESP32-S3-Touch-AMOLED-1.75C.</strong> The 1.75, 1.85C and similarly named boards are not interchangeable. Building is reversible; flashing is a deliberate hardware write. Verify the exact board, flash size and recovery backup before proceeding.</div>
+
+      <h2>Step by step: from Xiaozhi to Arc</h2>
+
+      <div class="step">
+        <h2>1. Confirm the exact board and USB connection</h2>
+
+        <p>I connected the board directly to my Mac with a USB-C data cable and confirmed the printed model: <code>Touch-AMOLED-1.75C Rev1.1</code>.</p>
+
+        <pre>ls /dev/cu.usb*</pre>
+
+        <p>My device appeared as <code>/dev/cu.usbmodem101</code>, but port names can change. A matching USB port proves connectivity, not the board model.</p>
+      </div>
+
+      <div class="step">
+        <h2>2. Read the hardware identity before writing</h2>
+
+        <p>I used an isolated Python environment and esptool for read-only checks:</p>
+
+        <pre>brew install python@3.13
+/opt/homebrew/bin/python3.13 -m venv .local/esptool-env
+.local/esptool-env/bin/python -m pip install esptool==5.6.0
+export ARC_PORT=/dev/cu.usbmodem101
+
+.local/esptool-env/bin/python -m esptool \
+  --chip esp32s3 --port "$ARC_PORT" flash-id
+
+.local/esptool-env/bin/python -m esptool \
+  --chip esp32s3 --port "$ARC_PORT" get-security-info</pre>
+
+        <p>My unit reported an ESP32-S3 with 32 MB flash and 8 MB PSRAM. Secure Boot and flash encryption were disabled. Other units should be checked rather than assumed to match.</p>
+      </div>
+
+      <div class="step">
+        <h2>3. Capture and verify a complete backup</h2>
+
+        <p>A 16 MB backup would have been incomplete for my 32 MB board. I saved the entire flash, generated a checksum and compared the file back against the device:</p>
+
+        <pre>mkdir -p .local/recovery
+chmod 700 .local .local/recovery
+umask 077
+
+.local/esptool-env/bin/python -m esptool \
+  --chip esp32s3 --port "$ARC_PORT" --baud 460800 \
+  read-flash 0x0 0x2000000 \
+  .local/recovery/arc-xiaozhi-full-32mb.bin
+
+shasum -a 256 .local/recovery/arc-xiaozhi-full-32mb.bin
+
+.local/esptool-env/bin/python -m esptool \
+  --chip esp32s3 --port "$ARC_PORT" \
+  verify-flash 0x0 .local/recovery/arc-xiaozhi-full-32mb.bin</pre>
+
+        <p>The backup can contain credentials and device configuration, so it stays private and outside Git.</p>
+      </div>
+
+      <figure class="article-media"><img src="assets/muse-arc-hardware-battery.jpg" width="787" height="1400" alt="Open Waveshare Touch-AMOLED-1.75C Rev1.1 enclosure beside its lithium battery" loading="lazy"><figcaption>The exact Touch-AMOLED-1.75C Rev1.1 hardware and compact battery that make Arc portable.</figcaption></figure>
+
+      <div class="step">
+        <h2>4. Clone the reproducible Arc project</h2>
+
+        <p>I preserved the working instructions, source pins, checks and troubleshooting history in the public <a href="https://github.com/phanidileep4/waveshare-arc-muse" target="_blank" rel="noopener">waveshare-arc-muse repository</a>:</p>
+
+        <pre>git clone https://github.com/phanidileep4/waveshare-arc-muse.git
+cd waveshare-arc-muse
+
+export PATH="$(brew --prefix python@3.13)/libexec/bin:$PATH"
+python3 scripts/bootstrap.py</pre>
+
+        <p>The bootstrap script downloads the pinned Muse and ESP-IDF sources into an ignored local directory. It does not flash the device.</p>
+      </div>
+
+      <div class="step">
+        <h2>5. Keep the Muse token private and build</h2>
+
+        <p>The Muse SDK token is stored in a private local file, never in the repository or a shell command:</p>
+
+        <pre>export ARC_SDK_TOKEN_FILE=/absolute/path/to/private-token-file
+python3 scripts/build.py</pre>
+
+        <p>The generated firmware contains the token, so compiled binaries also remain private. The public repository contains only safe configuration overlays, validation evidence and scripts.</p>
+      </div>
+
+      <div class="step">
+        <h2>6. Verify the exact configuration</h2>
+
+        <p>The successful build uses the ESP32-S3 target, exact Waveshare 1.75C board overlay, 32 MB flash and octal PSRAM. Two options were decisive for the final experience:</p>
+
+        <pre>CONFIG_MUSE_REALTIME_VOICE=y
+CONFIG_MUSE_STATIC_BUFFERS_IN_PSRAM=y</pre>
+
+        <p>The first enables live spoken calls. The second moves large static avatar and audio buffers into PSRAM. Without it, Arc could boot and appear ready but lacked a sufficiently large internal-memory block for the Muse connection task.</p>
+      </div>
+
+      <div class="step">
+        <h2>7. Treat the first migration differently from an upgrade</h2>
+
+        <p>Moving from Xiaozhi to Muse changes the partition layout. That first migration is not the same as updating an already paired Muse device.</p>
+
+        <p>The repository's flash helper defaults to a plan and does not write anything:</p>
+
+        <pre>python3 scripts/flash.py --port "$ARC_PORT"</pre>
+
+        <p>That helper is only for Muse-to-Muse upgrades and preserves pairing data. For a first Xiaozhi-to-Muse migration, follow the separate, explicitly marked instructions in the repository's <a href="https://github.com/phanidileep4/waveshare-arc-muse/blob/main/docs/01-step-by-step.md" target="_blank" rel="noopener">step-by-step guide</a> after verifying the complete backup. I intentionally keep the destructive write details in that maintained guide rather than encouraging readers to paste commands from an article without context.</p>
+      </div>
+
+      <div class="step">
+        <h2>8. Pair the device and finish Wi-Fi setup</h2>
+
+        <p>Arc uses 2.4 GHz Wi-Fi. In the Muse app I enabled developer mode, added the gadget shown on Arc's screen, confirmed pairing with the physical top button, selected the network and entered its password.</p>
+
+        <p>One lesson was easy to miss: getting an IP address on Arc and finishing Muse account pairing are separate milestones. I eventually had Arc connected directly to Wi-Fi while the app still asked for the network password. Completing the app flow paired Arc to my Muse account.</p>
+      </div>
+
+      <figure class="article-media"><img src="assets/muse-arc-pairing.jpg" width="787" height="1400" alt="Arc displaying its Muse app pairing prompt and physical-button confirmation" loading="lazy"><figcaption>Pairing Arc with the Muse app required both the app flow and confirmation on the device.</figcaption></figure>
+
+      <div class="step">
+        <h2>9. Use the correct button gesture for spoken replies</h2>
+
+        <p>A long press sends a voice note, whose reply is text. A quick click and release starts the live call that produces spoken audio. If the display is asleep, the first click may only wake it; click again once it is awake.</p>
+
+        <p>My final controlled test returned HTTP 200, played 583 audio frames with zero dropped or bad frames, and ended cleanly. More importantly, I heard Muse respond through Arc's speaker.</p>
+      </div>
+
+      <h2>The failed attempts taught me how the system actually works</h2>
+
+      <p>The most useful findings came from symptoms that initially pointed in the wrong direction:</p>
+
+      <ul>
+        <li><strong>Wi-Fi authentication timeouts did not automatically mean a wrong password.</strong> Band settings, connection state and account pairing had to be separated.</li>
+        <li><strong>Hearing tones did not prove replies contained speech.</strong> The default voice-note mode intentionally produces text rather than spoken answers.</li>
+        <li><strong>“Can't connect” was not necessarily a network problem.</strong> In the first live build, internal-memory pressure prevented an 8 KiB Muse task from starting.</li>
+        <li><strong>A successful build was not the acceptance test.</strong> The real finish line was speaking, receiving a response and hearing valid audio on the physical device.</li>
+      </ul>
+
+      <p>The complete sequence—including corrections, unresolved uncertainties and the evidence behind each conclusion—is preserved in the repository's <a href="https://github.com/phanidileep4/waveshare-arc-muse/blob/main/docs/03-troubleshooting.md" target="_blank" rel="noopener">troubleshooting history</a>.</p>
+
+      <h2>Why this excites me before Muse Charm arrives</h2>
+
+      <p>There is a special satisfaction in using a polished device. There is a different satisfaction in arriving at the experience by understanding its layers: USB, flash geometry, recovery, firmware, memory placement, Wi-Fi, account pairing, audio transport and physical controls.</p>
+
+      <p>Arc lets me explore the behavior of a dedicated AI companion now. I can learn which interactions feel natural, when a screen adds value, how often I prefer voice notes versus live calls, how battery and connectivity shape portability, and what I may eventually want from custom tools or an OpenAI integration.</p>
+
+      <p>I want to experience Muse on Arc for a short period, but I already know this is not the endpoint. I would like to overwrite it soon with my own OpenAI-powered build—one where I control the voice experience, personality, memory and tools instead of treating the hardware as a fixed appliance.</p>
+
+      <p>That OpenAI integration has not been implemented yet. When it is ready, the first milestone will be deliberately simple and complete: speak to Arc, receive an OpenAI response and hear it through Arc's speaker. Only after that works end to end will I add custom memory, tools or on-demand phone-camera vision. The verified Muse firmware and Xiaozhi backup will remain recovery paths while I experiment.</p>
+
+      <blockquote>Sometimes excitement about an upcoming product is not only a reason to wait for it. It is a reason to start learning.</blockquote>
+
+      <h2>Build it carefully, then make it yours</h2>
+
+      <p>This is a community experiment, not an official Waveshare or Muse release. Anyone trying it should begin with the exact hardware identity, a verified full backup and a private recovery archive. Never commit SDK tokens, Wi-Fi credentials, flash dumps or token-bearing firmware.</p>
+
+      <p>If you want to reproduce the project or improve the documentation, visit <a href="https://github.com/phanidileep4/waveshare-arc-muse" target="_blank" rel="noopener">github.com/phanidileep4/waveshare-arc-muse</a>. The repository includes the complete guide, daily controls, recovery notes, build validation, hardware findings and roadmap.</p>
+
+      <p>Arc began as a way to satisfy my curiosity before Muse Charm becomes available. It has already become something better: a working device, a recovery-safe experiment and a foundation I understand well enough to overwrite, rebuild and keep extending—next with OpenAI.</p>
+
+      <hr>
+      <p><small><strong>Sources and project documentation:</strong> <a href="https://www.meta.com/muse-charm/" target="_blank" rel="noopener">Meta: Muse Charm</a> · <a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank" rel="noopener">Official Muse Gadget SDK</a> · <a href="https://docs.waveshare.com/ESP32-S3-Touch-AMOLED-1.75C" target="_blank" rel="noopener">Waveshare 1.75C documentation</a> · <a href="https://github.com/phanidileep4/waveshare-arc-muse" target="_blank" rel="noopener">Waveshare Arc Muse repository</a></small></p>
+    </div>
+  </main>
+  <footer><div><strong>Phani Dileep</strong><p>Personal thoughts, professional work, and everything in between.</p><div class="social-links"><a href="https://www.linkedin.com/in/phanidileep/" target="_blank" rel="me noopener">LinkedIn ↗</a><a href="https://github.com/phanidileep4" target="_blank" rel="me noopener">GitHub ↗</a></div></div><p>© 2026 Phani Dileep</p></footer>
+</body>
+</html>
