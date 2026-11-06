@@ -155,6 +155,7 @@ footer p { margin: 20px 0 0; }
 a.project:hover, a.note:hover { background: var(--surface); padding-left: 30px; padding-right: 30px; }
 .project h2, .note h2 { margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(1.65rem, 2.7vw, 2.7rem); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
 .project p, .note p { color: var(--muted); margin: 12px 0 0; max-width: 700px; }
+.project .project-links a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
 .tag { font-size: .75rem; letter-spacing: .13em; color: var(--accent); font-weight: 600; text-transform: uppercase; }
 .arrow { font-size: 1rem; white-space: nowrap; color: var(--muted); }
 
