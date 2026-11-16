@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Building My Own Healthspan Dashboard from Fitbit Data | Phani Dileep</title>
+  <meta name="description" content="Why I built a WHOOP-inspired wellness dashboard with Fitbit and Google Health data, what its nine experimental pillars show, and why public OAuth access is harder than building the dashboard.">
+  <meta name="author" content="Phani Dileep">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://phanidileep.me/building-fitbit-healthspan-dashboard.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Phani Dileep">
+  <meta property="og:title" content="Building My Own Healthspan Dashboard from Fitbit Data">
+  <meta property="og:description" content="A personal experiment in turning Fitbit and Google Health data into a transparent, privacy-conscious view of long-term wellness trends.">
+  <meta property="og:url" content="https://phanidileep.me/building-fitbit-healthspan-dashboard.html">
+  <meta property="article:published_time" content="2026-11-16">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article{max-width:860px;margin:0 auto;padding:20px 24px 80px}.article .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65}.article h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;margin:.3em 0}.article .dek{font-size:1.3rem;line-height:1.6;opacity:.78}.article .meta{margin:24px 0 50px;opacity:.6}.article-body{font-size:1.08rem;line-height:1.85}.article-body h2{font-size:2rem;line-height:1.2;margin-top:2.2em}.article-body blockquote{font-size:1.35rem;line-height:1.6;margin:2em 0;padding-left:24px;border-left:3px solid currentColor}.article-body a{text-decoration:underline;text-underline-offset:3px}.callout{margin:2.2em 0;padding:24px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.035)}.callout h2,.callout h3{margin-top:0}.callout ul{margin-bottom:0;padding-left:22px}.callout li+li{margin-top:.7em}.project-actions{display:flex;flex-wrap:wrap;gap:12px;margin:2.4em 0}.project-actions a{display:inline-block;padding:11px 17px;border:1px solid rgba(255,255,255,.22);border-radius:999px;text-decoration:none}.project-actions a:first-child{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Building My Own Healthspan Dashboard from Fitbit Data","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","name":"Phani Dileep","url":"https://phanidileep.me/"},"mainEntityOfPage":"https://phanidileep.me/building-fitbit-healthspan-dashboard.html","description":"Why I built a WHOOP-inspired wellness dashboard with Fitbit and Google Health data, what its nine experimental pillars show, and why public OAuth access is harder than building the dashboard."}</script>
+</head>
+<body>
+  <header class="nav"><a class="brand" href="/"><strong>Phani Dileep</strong><small>Build · Learn · Explore · Share</small></a><nav><a href="/">Home</a><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a class="active" href="notes.html">Notes</a><a href="photos.html">Photos</a><a href="life.html">Life</a></nav></header>
+  <main class="article">
+    <p class="eyebrow">HEALTH DATA · PERSONAL SOFTWARE · NOVEMBER 2026</p>
+    <h1>Building My Own Healthspan Dashboard from Fitbit Data</h1>
+    <p class="dek">I wanted more than disconnected daily numbers. I wanted one transparent view of what my Fitbit data might be saying over time—and an honest account of what it cannot say.</p>
+    <p class="meta">By Phani Dileep · November 16, 2026</p>
+    <div class="article-body">
+      <p>I enjoy health and fitness data, but I often find it fragmented. Sleep is in one view, activity in another, cardio fitness somewhere else, and longer-term context is easy to lose behind today's score.</p>
+
+      <p>WHOOP's Healthspan experience made me curious about whether I could build a similarly clear view using the Fitbit data already available through Google Health. I did not want to reproduce WHOOP's proprietary algorithm. I wanted to explore the product idea: can several measurable signals be brought together in a way that makes trends easier to understand?</p>
+
+      <p>That became <strong>Healthspan</strong>, a personal, open-source wellness dashboard built with Google Health API v4 and Fitbit data.</p>
+
+      <div class="project-actions"><a href="https://fitbit-healthspan.vercel.app/" target="_blank" rel="noopener">Explore sample mode ↗</a><a href="https://github.com/phanidileep4/fitbit-healthspan" target="_blank" rel="noopener">View the source ↗</a></div>
+
+      <div class="callout">
+        <h3>An important boundary</h3>
+        <p>This is an experimental software project—not a validated biological clock, medical device, diagnosis, physiological aging-rate measurement or recreation of WHOOP's algorithm. Its age and pace outputs are product heuristics, and the underlying measurements matter more than a single composite number.</p>
+      </div>
+
+      <h2>Nine signals, two time windows</h2>
+
+      <p>The dashboard uses up to 180 completed days as a baseline and compares that longer view with the latest 30 completed days. It currently brings together nine measurable pillars:</p>
+
+      <div class="callout">
+        <ul>
+          <li>Sleep consistency and total sleep duration</li>
+          <li>Daily steps</li>
+          <li>Moderate cardio and vigorous or peak cardio</li>
+          <li>Logged strength activities</li>
+          <li>VO₂ max, when Fitbit provides it</li>
+          <li>Resting heart rate</li>
+          <li>Lean body mass derived from recorded body-fat data</li>
+        </ul>
+      </div>
+
+      <p>Missing data is not treated as poor health. If a source is unavailable or has too little coverage, the dashboard leaves that pillar out instead of quietly converting absence into a zero. An overall estimate appears only when enough pillars are available.</p>
+
+      <p>I added per-pillar freshness indicators and 30-day coverage calendars because a number without context can be misleading. A green day means an observation was recorded. A gray day means the data is missing; it does not prove that nothing happened.</p>
+
+      <blockquote>The quality of a wellness conclusion cannot be better than the coverage and meaning of the data behind it.</blockquote>
+
+      <h2>“What is a good value?” needed a careful answer</h2>
+
+      <p>One of my first questions after seeing the dashboard was the obvious one: what should I compare these measurements with?</p>
+
+      <p>I added general reference guidance from organizations such as the NIH, CDC, American Heart Association and Google Health. Sleep guidance, activity targets and resting-heart-rate ranges can provide useful orientation. VO₂ max is better interpreted with age- and sex-adjusted classifications than with one universal number.</p>
+
+      <p>Those references are deliberately kept separate from the experimental scoring model. Linking a source beside a metric does not scientifically validate the dashboard's age coefficients. The <a href="https://fitbit-healthspan.vercel.app/methodology" target="_blank" rel="noopener">methodology page</a> explains both the comparisons and the limits.</p>
+
+      <h2>The “lean percentage” taught me to be more explicit</h2>
+
+      <p>The original interface used a label that could sound as though a Fitbit watch measured lean mass automatically. It does not.</p>
+
+      <p>When body-fat records are available, the dashboard calculates lean mass as 100 minus body-fat percentage. A 20% body-fat measurement therefore produces approximately 80% lean mass. That includes water, bone, organs and muscle; it is not the same thing as muscle percentage.</p>
+
+      <p>I renamed the manual input to <strong>Lean fallback %</strong> and made the source visible. If the app has no body-fat records, the pillar stays unavailable unless the user supplies a measured fallback. Clear language matters especially when software is presenting health-related information.</p>
+
+      <h2>History without pretending the past exists</h2>
+
+      <p>The app cannot reconstruct historical “wellness age” values that were never calculated. Instead, users can optionally save dated snapshots after successful live syncs. Comparisons are allowed only when the model version, active pillars, settings and data coverage are reasonably compatible.</p>
+
+      <p>Snapshots and personal goals remain in that browser's local storage, and the app can export history as JSON or CSV without OAuth credentials. Local storage is not encrypted at rest, so the interface says that directly and provides controls to clear saved history.</p>
+
+      <p>On the server side, Healthspan does not maintain a database of health measurements or OAuth tokens. The OAuth session is held in an encrypted, authenticated HttpOnly cookie, while the computed dashboard summary is cached in the browser tab. The full choices and caveats are documented in the app's <a href="https://fitbit-healthspan.vercel.app/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+
+      <h2>The harder launch problem was not the dashboard</h2>
+
+      <p>Once the app worked for me, I naturally wondered how to let anyone connect their own Google Health account. That is where the project stopped being only a software exercise and became a lesson in platform trust.</p>
+
+      <p>Most Google Health scopes are classified as restricted. A public app must complete OAuth verification, provide clear in-app health-data disclosure and undergo an annual third-party security assessment under CASA. Google currently describes a limited test mode for personally known users, with a test-user cap and authorizations that expire after seven days.</p>
+
+      <p>Those controls make sense: health data deserves a higher bar. They also mean that turning a personal experiment into a broadly available product involves meaningful compliance work and recurring cost—not just changing the OAuth status to “In production.”</p>
+
+      <div class="callout">
+        <h3>Where the project stands</h3>
+        <ul>
+          <li>Anyone can explore the dashboard with illustrative sample data.</li>
+          <li>Live Fitbit and Google Health sync is currently a limited test-user beta.</li>
+          <li>Test users must be added manually and may need to reconnect periodically.</li>
+          <li>A fully public launch would require Google verification and the applicable security assessment.</li>
+        </ul>
+      </div>
+
+      <h2>Why I still loved building it</h2>
+
+      <p>This project gave me a useful dashboard, but it also reinforced a broader product lesson. A polished score is easy to display. The more difficult work is exposing source, freshness, uncertainty, missing data, privacy consequences and the boundary between a helpful comparison and an unsupported health claim.</p>
+
+      <p>I am continuing to treat Healthspan as a transparent experiment. The scoring logic is visible in the repository. The sample mode is open to explore. The limitations are part of the interface instead of being hidden in fine print.</p>
+
+      <blockquote>Good health software should not merely produce an answer. It should help a person understand why the answer exists—and how much confidence to place in it.</blockquote>
+
+      <hr>
+      <p><small><strong>Project and references:</strong> <a href="https://fitbit-healthspan.vercel.app/" target="_blank" rel="noopener">Healthspan dashboard</a> · <a href="https://github.com/phanidileep4/fitbit-healthspan" target="_blank" rel="noopener">Source code</a> · <a href="https://developers.google.com/health/app-verification" target="_blank" rel="noopener">Google Health app verification</a> · <a href="https://support.google.com/cloud/answer/15549945" target="_blank" rel="noopener">Google OAuth testing and audience guidance</a></small></p>
+    </div>
+  </main>
+  <footer><div><strong>Phani Dileep</strong><p>Personal thoughts, professional work, and everything in between.</p><div class="social-links"><a href="https://www.linkedin.com/in/phanidileep/" target="_blank" rel="me noopener">LinkedIn ↗</a><a href="https://github.com/phanidileep4" target="_blank" rel="me noopener">GitHub ↗</a></div></div><p>© 2026 Phani Dileep</p></footer>
+</body>
+</html>
