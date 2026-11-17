@@ -115,6 +115,7 @@ main { max-width: var(--max); margin: auto; padding: 0 28px; }
 .quick p { font-size: .92rem; line-height: 1.6; color: var(--muted); margin: 0; max-width: 290px; }
 .quick b { margin-top: auto; font-size: 1.25rem; font-weight: 400; color: var(--accent); }
 .q-work { grid-column: span 2; }
+.q-life { grid-column: span 2; }
 
 .latest { border-top: 1px solid var(--line); padding: 90px 0 120px; }
 .section-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
@@ -142,6 +143,8 @@ footer p { margin: 20px 0 0; }
 .content h2:first-child { margin-top: 0; }
 .content h3 { font-size: 1.16rem; margin-bottom: 5px; }
 .content p { color: var(--muted); font-size: 1.03rem; }
+.life-stories-intro { padding-bottom: 0; }
+.life-story-list { padding-top: 25px; padding-bottom: 45px; }
 .timeline { border-left: 1px solid var(--line); padding-left: 30px; }
 .timeline article { margin: 0 0 48px; position: relative; }
 .timeline article::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); position: absolute; left: -35px; top: 9px; box-shadow: 0 0 0 6px var(--bg); }
@@ -183,6 +186,7 @@ a.project:hover, a.note:hover { background: var(--surface); padding-left: 30px; 
   .portrait-wrap, .portrait-sketch { min-height: 460px; height: 460px; }
   .quick-grid { grid-template-columns: 1fr 1fr; }
   .q-work { grid-column: auto; }
+  .q-life { grid-column: auto; }
   .signal-strip { grid-template-columns: 1fr 1fr; }
   .signal-strip span:nth-child(2) { border-right: 0; }
   .signal-strip span:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
