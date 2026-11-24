@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>When AI Finds Flaws Faster Than We Can Fix Them | Phani Dileep</title>
+  <meta name="description" content="What happens when AI makes software flaws easier to find, but the hospitals, businesses and people relying on that software still need time to patch and recover?">
+  <meta name="author" content="Phani Dileep">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://phanidileep.me/when-ai-finds-flaws-faster-than-we-can-fix-them.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Phani Dileep">
+  <meta property="og:title" content="When AI Finds Flaws Faster Than We Can Fix Them">
+  <meta property="og:description" content="A reflection on AI-assisted discovery, the time it takes to patch software, and how we keep essential services running in between.">
+  <meta property="og:url" content="https://phanidileep.me/when-ai-finds-flaws-faster-than-we-can-fix-them.html">
+  <meta property="article:published_time" content="2026-11-24">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article { max-width: 860px; margin: 0 auto; padding: 20px 24px 80px; }
+    .article .eyebrow { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; opacity: .65; }
+    .article h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.02; margin: .3em 0; }
+    .article .dek { font-size: 1.3rem; line-height: 1.6; opacity: .78; }
+    .article .meta { margin: 24px 0 50px; opacity: .6; }
+    .article-body { font-size: 1.08rem; line-height: 1.85; }
+    .article-body h2 { font-size: 2rem; line-height: 1.2; margin-top: 2.2em; }
+    .article-body a { text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "When AI Finds Flaws Faster Than We Can Fix Them",
+    "description": "A reflection on AI-assisted discovery, the time it takes to patch software, and how we keep essential services running in between.",
+    "datePublished": "2026-11-24",
+    "author": {"@type": "Person", "name": "Phani Dileep", "url": "https://phanidileep.me/"},
+    "mainEntityOfPage": "https://phanidileep.me/when-ai-finds-flaws-faster-than-we-can-fix-them.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><strong>Phani Dileep</strong><small>Build · Learn · Explore · Share</small></a>
+    <nav aria-label="Primary navigation"><a href="/">Home</a><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a class="active" href="notes.html">Notes</a><a href="life.html">Life</a></nav>
+  </header>
+  <main class="article">
+    <p class="eyebrow">AI &amp; CYBERSECURITY · NOVEMBER 2026</p>
+    <h1>When AI Finds Flaws Faster Than We Can Fix Them</h1>
+    <p class="dek">I’m excited by what AI is helping us discover. I keep wondering what happens when someone can act on a discovery before the people affected by it have time to respond.</p>
+    <p class="meta">By Phani Dileep · <time datetime="2026-11-24">November 24, 2026</time></p>
+    <div class="article-body">
+      <p>I was reading about recent work on the algebraic counterpart to P vs. NP when I came across Alexandr Wang’s post about AI and the Riemann Hypothesis. Clay still lists P vs. NP as open. Separately, the Lean and Mathlib teams reported that they verified the Riemann proof Levent Alpöge released after working with Claude. I found that genuinely exciting. It also sent me in a direction I didn’t expect. <a href="https://www.claymath.org/millennium/p-vs-np/">Clay’s P vs. NP page</a> · <a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean and Mathlib’s verification</a> · <a href="https://x.com/alexandr_wang/status/2124636606959345776">Wang’s post</a></p>
+
+      <p>When an answer arrives faster than anyone expected, who can act on it first? In mathematics, people can check a proof and start exploring where it leads. In software, the answer might be that a system people rely on has a serious weakness. The person who finds it may be trying to protect that system, or they may intend to take advantage of it. Either way, everyone running the software needs time to respond.</p>
+
+      <h2>A fix can exist while people are still exposed</h2>
+      <p>Anyone who has shipped software knows what happens between writing a fix and running it in production. You have to know which versions are affected, test the change against real dependencies, and roll it out without disrupting the people using the service. Some systems update automatically. Others have to stay available while their operators figure out what the update might break. The UK’s National Cyber Security Centre expects AI-assisted vulnerability discovery to give attackers more chances to reach systems before their owners can patch them. <a href="https://www.ncsc.gov.uk/collection/annual-review-2026/understanding-threat/ai-impact-cyber-threat">NCSC 2026 Annual Review</a></p>
+
+      <p>I think about how much of ordinary life depends on software working quietly in the background. Imagine a hospital that can still treat patients but has to switch to paper, or a shop that has goods on the shelf but suddenly can’t take card payments. If both rely on software shared by thousands of other organizations, a single flaw can put many teams in the same position on the same morning. For the people in those places, the world can feel upside down very quickly.</p>
+
+      <h2>What can we keep working while we fix it?</h2>
+      <p>I want defenders to have the same gains in speed. AI could help a small team review more code, test a fix against more cases, or sort through reports that would otherwise sit in a queue. I’d also measure the things an organization has to do once it learns about a flaw. How long does it take to work out where the affected software is running? Can the team isolate one part of the service and keep the rest available? Has anyone practiced restoring it under pressure?</p>
+
+      <p>I still get excited when a difficult answer arrives sooner than expected. Now I find myself asking a second question alongside it. How much time do the people who depend on these systems need, and what can we put in place today to give them that time?</p>
+    </div>
+  </main>
+  <footer><div><strong>Phani Dileep</strong><p>Personal thoughts, professional work, and everything in between.</p><div class="social-links"><a href="https://www.linkedin.com/in/phanidileep/" target="_blank" rel="me noopener">LinkedIn ↗</a><a href="https://github.com/phanidileep4" target="_blank" rel="me noopener">GitHub ↗</a></div></div><p>© 2026 Phani Dileep</p></footer>
+</body>
+</html>
